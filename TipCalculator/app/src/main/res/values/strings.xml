@@ -4,5 +4,9 @@
     <string name="app_name">Tip Calculator</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_summary">SummaryActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="saved_tip_percentage">saved_tip_percentage</string>
+    <string name="preference_file_key">preference_file_key</string>
 
 </resources>
