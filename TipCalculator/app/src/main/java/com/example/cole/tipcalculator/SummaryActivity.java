@@ -1,10 +1,11 @@
 package com.example.cole.tipcalculator;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.TextView;
 
 public class SummaryActivity extends ActionBarActivity {
 
@@ -12,8 +13,23 @@ public class SummaryActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
-    }
 
+        TextView billAmountTextView = (TextView) findViewById(R.id.billAmount);
+        TextView tipAmountTextView = (TextView) findViewById(R.id.tipAmount);
+        TextView totalAmountTextView = (TextView) findViewById(R.id.totalAmount);
+
+        Intent intent = getIntent();
+
+        double billAmount = Double.parseDouble(intent.getStringExtra("BILL_AMOUNT"));
+        double tipPercentage = Double.parseDouble(intent.getStringExtra("TIP_PERCENTAGE"));
+        int numberOfPeople = Integer.parseInt(intent.getStringExtra("NUMBER_OF_PEOPLE"));
+
+        double tipAmount = billAmount * (tipPercentage / 100);
+
+        billAmountTextView.setText("$" + billAmount);
+        tipAmountTextView.setText("$" + tipAmount);
+        totalAmountTextView.setText("$" + (billAmount + tipAmount));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
