@@ -1,10 +1,13 @@
 package com.example.cole.tipcalculator;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.EditText;
 
 public class SettingsActivity extends ActionBarActivity {
 
@@ -12,8 +15,14 @@ public class SettingsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-    }
 
+        SharedPreferences sharedPref = this.getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        float tip_percentage = sharedPref.getFloat(getString(R.string.saved_tip_percentage), 0);
+
+        EditText tipPercentage = (EditText) findViewById(R.id.defaultTipPercentage);
+        tipPercentage.setText(Float.toString(tip_percentage));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -24,16 +33,16 @@ public class SettingsActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    public void save(View view) {
+        EditText tipPercentage = (EditText) findViewById(R.id.defaultTipPercentage);
+
+        SharedPreferences sharedPref = this.getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putFloat(getString(R.string.saved_tip_percentage), Float.parseFloat(tipPercentage.getText().toString()));
+        editor.commit();
     }
 }
