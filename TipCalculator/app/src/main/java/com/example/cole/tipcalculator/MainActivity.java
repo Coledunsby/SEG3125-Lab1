@@ -1,14 +1,17 @@
 package com.example.cole.tipcalculator;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Rating;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.content.Intent;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,9 +28,13 @@ public class MainActivity extends ActionBarActivity {
         SharedPreferences sharedPref = this.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         float tip_percentage = sharedPref.getFloat(getString(R.string.saved_tip_percentage), 0);
+        String currency_symbol = sharedPref.getString("saved_currency", "$");
 
         EditText tipPercentage = (EditText) findViewById(R.id.tipPercentage);
-        tipPercentage.setText(Float.toString(tip_percentage));
+        tipPercentage.setText(String.format("%.2f", tip_percentage));
+
+        TextView currencySymbol = (TextView) findViewById(R.id.dollarSign);
+        currencySymbol.setText(currency_symbol);
     }
 
     @Override
@@ -54,14 +61,25 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void showSummary(View view) {
+    public void calculateButtonPressed(View view) {
+        showSummary(false);
+    }
+
+    public void suggestTipButtonPressed(View view) {
+        showSummary(true);
+    }
+
+    public void showSummary(Boolean suggest) {
         EditText billAmount = (EditText) findViewById(R.id.billAmount);
         EditText tipPercentage = (EditText) findViewById(R.id.tipPercentage);
         EditText numberOfPeople = (EditText) findViewById(R.id.numberOfPeople);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+
+        float tip = suggest ? 10 + (ratingBar.getRating() * 2) : Float.parseFloat(tipPercentage.getText().toString());
 
         Intent intent = new Intent(this, SummaryActivity.class);
         intent.putExtra("BILL_AMOUNT", billAmount.getText().toString());
-        intent.putExtra("TIP_PERCENTAGE", tipPercentage.getText().toString());
+        intent.putExtra("TIP_PERCENTAGE", Float.toString(tip));
         intent.putExtra("NUMBER_OF_PEOPLE", numberOfPeople.getText().toString());
         startActivity(intent);
     }

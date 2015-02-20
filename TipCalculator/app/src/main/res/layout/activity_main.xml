@@ -15,38 +15,58 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:id="@+id/linearLayout" >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Bill Amount"
+                android:text="BILL AMOUNT"
                 android:id="@+id/textView"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Tip %"
-                android:id="@+id/textView2"
-                android:gravity="center_vertical" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="# People"
+                android:text="# PEOPLE"
                 android:id="@+id/textView3"
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout2"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="$"
+                android:id="@+id/dollarSign"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/textView12"
                 android:gravity="center_vertical" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:id="@+id/linearLayout" >
 
             <EditText
                 android:layout_width="fill_parent"
@@ -60,35 +80,104 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/tipPercentage"
-                android:gravity="right"
-                android:text="0.0" />
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="40dp"
                 android:ems="10"
                 android:id="@+id/numberOfPeople"
+                android:text="1"
                 android:gravity="right"
-                android:inputType="numberSigned"
-                android:text="1" />
+                android:inputType="numberSigned" />
         </LinearLayout>
+
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculate"
-            android:id="@+id/button"
-            android:onClick="showSummary"
-            android:layout_margin="10dp" />
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="TIP"
+                android:id="@+id/textView15"
+                android:textStyle="bold"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="%"
+                android:id="@+id/textView5"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="10dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/tipPercentage"
+                android:gravity="right"
+                android:text="0.0" />
+        </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CALCULATE"
+        android:id="@+id/button"
+        android:onClick="calculateButtonPressed"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:rating="5"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUGGEST A TIP"
+        android:id="@+id/button3"
+        android:onClick="suggestTipButtonPressed"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
 </LinearLayout>

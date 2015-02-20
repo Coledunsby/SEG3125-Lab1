@@ -14,40 +14,43 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="BILL AMOUNT"
+                android:text="BILL"
                 android:id="@+id/textView4"
                 android:gravity="center_vertical"
-                android:layout_margin="10dp" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="TIP AMOUNT"
-                android:id="@+id/textView5"
+                android:text="TIP (15%)"
+                android:id="@+id/tipTextView"
                 android:gravity="center_vertical"
-                android:layout_margin="10dp" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="TOTAL AMOUNT"
+                android:text="TOTAL"
                 android:id="@+id/textView6"
                 android:gravity="center_vertical"
-                android:layout_margin="10dp" />
+                android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="fill_parent"
@@ -55,8 +58,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="$0.00"
                 android:id="@+id/billAmount"
-                android:gravity="center_vertical|right"
-                android:layout_margin="10dp" />
+                android:gravity="center_vertical|right" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -64,8 +66,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="$0.00"
                 android:id="@+id/tipAmount"
-                android:gravity="center_vertical|right"
-                android:layout_margin="10dp" />
+                android:gravity="center_vertical|right" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -73,8 +74,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="$0.00"
                 android:id="@+id/totalAmount"
-                android:gravity="center_vertical|right"
-                android:layout_margin="10dp" />
+                android:gravity="center_vertical|right" />
         </LinearLayout>
     </LinearLayout>
 
@@ -82,12 +82,13 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="50dp">
+        android:id="@+id/PerPersonView">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -96,7 +97,7 @@
                 android:text="TIP PER PERSON"
                 android:id="@+id/textView10"
                 android:gravity="center_vertical"
-                android:layout_margin="10dp" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,32 +106,31 @@
                 android:text="EACH PERSON PAYS"
                 android:id="@+id/textView11"
                 android:gravity="center_vertical"
-                android:layout_margin="10dp" />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="$0.00"
-                android:id="@+id/textView13"
-                android:gravity="center_vertical|right"
-                android:layout_margin="10dp" />
+                android:id="@+id/TipPerPersonLabel"
+                android:gravity="center_vertical|right" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="$0.00"
-                android:id="@+id/textView14"
-                android:gravity="center_vertical|right"
-                android:layout_margin="10dp" />
+                android:id="@+id/EachPersonPaysLabel"
+                android:gravity="center_vertical|right" />
 
         </LinearLayout>
     </LinearLayout>
