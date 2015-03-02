@@ -161,6 +161,15 @@
         android:layout_height="2dp"
         android:background="@android:color/darker_gray"/>
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Rate your experience:"
+        android:id="@+id/textView8"
+        android:gravity="center"
+        android:layout_marginTop="10dp" />
+
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -168,7 +177,6 @@
         android:rating="5"
         android:numStars="5"
         android:stepSize="1"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center" />
 
     <Button
